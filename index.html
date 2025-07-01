@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Marker Test</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+  <script src="https://cdn.rawgit.com/jeromeetienne/ar.js/2.2.1/aframe/build/aframe-ar.min.js"></script>
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <img src="mercedesbenz_logo.svg" alt="Mercedes-Benz Logo">
+  </header>
+
+  <div id="info-overlay" class="hidden">
+    <h2 id="vehicle-title">Mercedes-Benz 300 SL</h2>
+    <img id="vehicle-image" src="300sl.jpg" alt="Fahrzeugbild">
+    <p id="vehicle-description">Ein legendäres Fahrzeug mit Flügeltüren aus den 1950er Jahren.</p>
+    <button id="collect-btn">Sammeln</button>
+  </div>
+
+  <a-scene embedded arjs="sourceType: webcam; detectionMode: mono;">
+    <a-marker id="marker-300sl" type="pattern" url="300sl.patt">
+      <a-cylinder color="#FFD700" radius="0.15" height="0.05" position="0 0.1 0"
+                  animation="property: rotation; to: 0 360 0; loop: true; dur: 2000"></a-cylinder>
+    </a-marker>
+    <a-entity camera></a-entity>
+  </a-scene>
+</body>
+</html>
